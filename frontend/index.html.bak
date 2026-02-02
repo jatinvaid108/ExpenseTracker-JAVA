@@ -508,19 +508,7 @@
         color: #9fb3d6;
         margin-top: 6px;
       }
-    
-/* Consent UI for AI modal */
-.ai-cookie-consent {
-  padding: 18px;
-  max-width: 640px;
-  line-height: 1.45;
-  color: white;
-}
-.ai-cookie-consent .consent-actions { margin-top: 12px; display:flex; gap:10px; }
-.ai-cookie-consent button { padding:8px 12px; border-radius:8px; border:1px solid #ccc; background:white; cursor:pointer; color: black; }
-.ai-disabled, .ai-error { padding:18px; max-width:640px; line-height:1.4; color: white; }
-.ai-disabled h3, .ai-error h3 { margin:0 0 8px 0; }
-</style>
+    </style>
     <div class="ai-overlay" id="ai-overlay"></div>
     <button id="ai-btn" aria-label="AI Insights">
       <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,10 +538,7 @@
         const mainContainer = document.querySelector('.container') || document.body;
         const sleep = (ms) => new Promise(res => setTimeout(res, ms));
         // Show AI modal
-        
-// Consent-gated AI modal flow (added by assistant)
-async function startAiFlow() {
-
+        aiBtn.addEventListener('click', async () => {
           // 1️⃣ Blur main container & pulse AI button
           mainContainer.classList.add('ai-siri-active');
           aiBtn.classList.add('pulse');
@@ -616,85 +601,7 @@ async function startAiFlow() {
           });
           // 7️⃣ Render messages with typewriter effect
           await renderTypewriter(messages, body);
-        
-}
-
-aiBtn.addEventListener('click', async () => {
-  try {
-    const consent = localStorage.getItem('aiModalCookieConsent');
-    if (consent === null) {
-      // Ask for consent inside the AI modal
-      mainContainer.classList.add('ai-siri-active');
-      aiBtn.classList.add('pulse');
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-      body.innerHTML = '';
-      const consentDiv = document.createElement('div');
-      consentDiv.className = 'ai-cookie-consent';
-      consentDiv.innerHTML = `
-        <h3>AI Assistant Consent</h3>
-        <p>The AI assistant can analyze your expense records to provide personalized insights and send in-app alerts. This requires storing a local consent flag (no external cookies are set by this app). Do you allow the AI assistant to access your expense data?</p>
-        <div class="consent-actions">
-          <button id="ai-consent-allow">Allow</button>
-          <button id="ai-consent-deny">Deny</button>
-        </div>
-        <p style="font-size:0.85em;margin-top:8px;color:#666">You can change this later from the AI settings.</p>
-      `;
-      body.appendChild(consentDiv);
-      document.getElementById('ai-consent-allow').addEventListener('click', async () => {
-        localStorage.setItem('aiModalCookieConsent', 'true');
-        await startAiFlow();
-      });
-      document.getElementById('ai-consent-deny').addEventListener('click', () => {
-        localStorage.setItem('aiModalCookieConsent', 'false');
-        body.innerHTML = '';
-        const disabled = document.createElement('div');
-        disabled.className = 'ai-disabled';
-        disabled.innerHTML = `
-          <h3>AI Assistant Disabled</h3>
-          <p>You denied consent. The AI assistant will not access or track your expense records.</p>
-          <div style="margin-top:12px;"><button id="ai-cookie-settings">Change Settings</button></div>
-        `;
-        body.appendChild(disabled);
-        document.getElementById('ai-cookie-settings').addEventListener('click', () => {
-          localStorage.removeItem('aiModalCookieConsent');
-          // re-open consent flow
-          aiBtn.click();
         });
-      });
-    } else if (consent === 'true') {
-      await startAiFlow();
-    } else {
-      // consent === 'false' -> open modal with disabled message and option to change
-      mainContainer.classList.add('ai-siri-active');
-      aiBtn.classList.add('pulse');
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-      body.innerHTML = '';
-      const disabled = document.createElement('div');
-      disabled.className = 'ai-disabled';
-      disabled.innerHTML = `
-        <h3>AI Assistant Disabled</h3>
-        <p>You previously denied consent. The AI assistant will not access or track your records.</p>
-        <div style="margin-top:12px;"><button id="ai-cookie-settings">Change Settings</button></div>
-      `;
-      body.appendChild(disabled);
-      document.getElementById('ai-cookie-settings').addEventListener('click', () => {
-        localStorage.removeItem('aiModalCookieConsent');
-        aiBtn.click();
-      });
-    }
-  } catch (err) {
-    console.error('AI consent flow error', err);
-    // fallback: open modal without tracking
-    mainContainer.classList.add('ai-siri-active');
-    aiBtn.classList.add('pulse');
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
-    body.innerHTML = '<div class="ai-error"><h3>AI Error</h3><p>Could not start AI assistant.</p></div>';
-  }
-});
-;
         // Close modal
         closeBtn.addEventListener('click', () => {
           // Animate modal out
