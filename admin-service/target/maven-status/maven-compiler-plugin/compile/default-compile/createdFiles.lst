@@ -1,0 +1,7 @@
+com\example\adminservice\repository\ExpenseRepository.class
+com\example\adminservice\models\User.class
+com\example\adminservice\AdminServiceApplication.class
+com\example\adminservice\controller\AdminController.class
+com\example\adminservice\repository\UserRepository.class
+com\example\adminservice\service\AdminService.class
+com\example\adminservice\models\Expense.class

@@ -19,12 +19,13 @@ public class UserRepository {
     }
 
     // LOGIN
-    public User findByUsernameAndPassword(String username, String password) {
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        return jdbcTemplate.queryForObject(sql,
-                new BeanPropertyRowMapper<>(User.class),
-                username, password);
-    }
+    public User findByUsername(String username) {
+    String sql = "SELECT * FROM users WHERE username = ?";
+    return jdbcTemplate.queryForObject(sql,
+            new BeanPropertyRowMapper<>(User.class),
+            username);
+}
+
 
     // FIND BY ID
     public User findById(Long id) {

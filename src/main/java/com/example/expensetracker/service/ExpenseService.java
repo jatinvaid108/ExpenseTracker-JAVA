@@ -30,6 +30,21 @@ public class ExpenseService {
         return repository.getAllExpenses(userId);
     }
 
+        // SEARCH
+    public List<Expense> searchExpenses(Long userId, String keyword) {
+        return repository.searchExpenses(userId, keyword);
+    }
+
+    // FILTER
+    public List<Expense> filterExpenses(Long userId, String category) {
+        return repository.filterExpenses(userId, category);
+    }
+
+    // SEARCH + FILTER
+    public List<Expense> searchAndFilter(Long userId, String category, String keyword) {
+        return repository.searchAndFilter(userId, category, keyword);
+    }
+
     // UPDATE
     public void updateExpense(Long userId, Long id, Expense expense) {
         if (expense.getAmount() <= 0) {

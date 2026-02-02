@@ -1,10 +1,14 @@
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\repository\ExpenseRepository.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\service\UserService.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\controller\ExpenseController.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\ExpenseTrackerApplication.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\models\Expense.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\repository\UserRepository.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\service\ExpenseService.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\controller\UserController.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\exception\GlobalExceptionHandler.java
-C:\Users\Dell\OneDrive\Desktop\expense-tracker\new version\expense-tracker\src\main\java\com\example\expensetracker\models\User.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\service\FinanceAIService.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\dto\InsightsDTO.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\models\Expense.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\ExpenseTrackerApplication.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\service\UserService.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\exception\GlobalExceptionHandler.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\controller\FinanceAIController.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\models\User.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\repository\ExpenseRepository.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\repository\UserRepository.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\controller\ExpenseController.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\service\ExpenseService.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\dto\RecurringExpenseDTO.java
+C:\Users\LENOVO\Documents\SEM5\EXPENSE-TRACKER\expense-tracker_admin_complete_2025_modified\src\main\java\com\example\expensetracker\controller\UserController.java

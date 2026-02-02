@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
+
 @Repository
 public class ExpenseRepository {
 
@@ -29,6 +31,34 @@ public class ExpenseRepository {
     public List<Expense> getAllExpenses(Long userId) {
         String sql = "SELECT * FROM expenses WHERE user_id = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Expense.class), userId);
+    }
+
+    // SEARCH (by title, case-insensitive)
+    public List<Expense> searchExpenses(Long userId, String keyword) {
+        String sql = "SELECT * FROM expenses WHERE user_id = ? AND LOWER(title) LIKE LOWER(?)";
+        return jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<>(Expense.class),
+                userId,
+                "%" + keyword + "%");
+    }
+
+    // FILTER (by category = 'INCOME' or 'EXPENSE')
+    public List<Expense> filterExpenses(Long userId, String category) {
+        String sql = "SELECT * FROM expenses WHERE user_id = ? AND category = ?";
+        return jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<>(Expense.class),
+                userId,
+                category);
+    }
+
+    // SEARCH + FILTER combined
+    public List<Expense> searchAndFilter(Long userId, String category, String keyword) {
+        String sql = "SELECT * FROM expenses WHERE user_id = ? AND category = ? AND LOWER(title) LIKE LOWER(?)";
+        return jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<>(Expense.class),
+                userId,
+                category,
+                "%" + keyword + "%");
     }
 
     // UPDATE (make sure only user can update their own expense)
